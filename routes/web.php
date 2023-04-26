@@ -22,8 +22,7 @@ use App\http\Controllers\Front\PaymentController;
 use App\http\Controllers\Front\Payment\PaypalPaymentController;
 use App\http\Controllers\Front\Payment\SubscriptionController;
 use App\http\Controllers\Admin\SocialController;
-
-
+use App\http\Controllers\User\CartController;
 
 
 /*
@@ -181,6 +180,10 @@ Route::group(['middleware' => ['userauth']], function () {
         Route::post('paypal', 'postPaymentWithpaypal')->name('web.paypal');
         Route::get('sucess', 'success')->name('payment.success');
         Route::get('cancel', 'cancel')->name('payment.cancel');
+    });
+
+    Route::controller(CartController::class)->group(function () {
+        Route::get('cart', 'cartDetail')->name('web.cart.detail');
     });
 });
 

@@ -136,7 +136,7 @@
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">{{auth()->user() ? 'My acount' : 'login'}}<i class='fas fa-user-circle'></i></a>
 
                             <ul class="dropdown-menu">
-                                <li><a href="cart.html">Cart</a></li>
+                                <li><a href="{{route('web.cart.detail')}}">Cart</a></li>
                                 <li><a href="checkout.html">Checkout</a></li>
                                 <li><a href="my-account.html">My Account</a></li>
                                 <li><a href="wishlist.html">Wishlist</a></li>
