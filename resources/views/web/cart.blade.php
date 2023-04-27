@@ -19,6 +19,8 @@
 <!-- Start Cart  -->
 <div class="cart-box-main">
     <div class="container">
+
+        @if(isset($usercart) && $usercart->count()>0)
         <div class="row">
             <div class="col-lg-12">
                 <div class="table-main table-responsive">
@@ -35,6 +37,8 @@
                         </thead>
                         <tbody>
                             <tr>
+                            @foreach($usercart as $key => $value)
+                                
                                 <td class="thumbnail-img">
                                     <a href="#">
                                         <img class="img-fluid" src="images/img-pro-01.jpg" alt="" />
@@ -42,13 +46,13 @@
                                 </td>
                                 <td class="name-pr">
                                     <a href="#">
-                                        Lorem ipsum dolor sit amet
+                                       {{$value->product->name}}
                                     </a>
                                 </td>
                                 <td class="price-pr">
                                     <p>$ 80.0</p>
                                 </td>
-                                <td class="quantity-box"><input type="number" size="4" value="1" min="0" step="1" class="c-input-text qty text"></td>
+                                <td class="quantity-box"><input type="number" size="4" value="{{$value->quantity}}" min="0" step="1" class="c-input-text qty text"></td>
                                 <td class="total-pr">
                                     <p>$ 80.0</p>
                                 </td>
@@ -57,6 +61,7 @@
                                         <i class="fas fa-times"></i>
                                     </a>
                                 </td>
+                                @endforeach
                             </tr>
                         </tbody>
                     </table>
@@ -118,97 +123,14 @@
             </div>
             <div class="col-12 d-flex shopping-box"><a href="checkout.html" class="ml-auto btn hvr-hover">Checkout</a> </div>
         </div>
+        @else
+        No Product Found
+        @endif
 
     </div>
 </div>
 <!-- End Cart -->
 
-<!-- Start Instagram Feed  -->
-<div class="instagram-box">
-    <div class="main-instagram owl-carousel owl-theme">
-        <div class="item">
-            <div class="ins-inner-box">
-                <img src="images/instagram-img-01.jpg" alt="" />
-                <div class="hov-in">
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="item">
-            <div class="ins-inner-box">
-                <img src="images/instagram-img-02.jpg" alt="" />
-                <div class="hov-in">
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="item">
-            <div class="ins-inner-box">
-                <img src="images/instagram-img-03.jpg" alt="" />
-                <div class="hov-in">
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="item">
-            <div class="ins-inner-box">
-                <img src="images/instagram-img-04.jpg" alt="" />
-                <div class="hov-in">
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="item">
-            <div class="ins-inner-box">
-                <img src="images/instagram-img-05.jpg" alt="" />
-                <div class="hov-in">
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="item">
-            <div class="ins-inner-box">
-                <img src="images/instagram-img-06.jpg" alt="" />
-                <div class="hov-in">
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="item">
-            <div class="ins-inner-box">
-                <img src="images/instagram-img-07.jpg" alt="" />
-                <div class="hov-in">
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="item">
-            <div class="ins-inner-box">
-                <img src="images/instagram-img-08.jpg" alt="" />
-                <div class="hov-in">
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="item">
-            <div class="ins-inner-box">
-                <img src="images/instagram-img-09.jpg" alt="" />
-                <div class="hov-in">
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="item">
-            <div class="ins-inner-box">
-                <img src="images/instagram-img-05.jpg" alt="" />
-                <div class="hov-in">
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- End Instagram Feed  -->
 @endsection
 
 

@@ -24,6 +24,7 @@ class ProductController extends Controller
   public function subcatgoryProductList($id)
   {
     $subcategory = SubCategory::where('id', $id)->with('product.brand', 'category', 'product.attribute.atter', 'product.cart')->get();
+    // dd($subcategory);
     $brand = Brand::whereHas('product.subcategory', function ($q) use ($id) {
       $q->where('id', $id);
     })->get();
@@ -57,17 +58,19 @@ class ProductController extends Controller
         'product_attribute_id' => $request->product_attribute_id
       ]);
     }
-    $product_atter_id = $request->product_attribute_id;
-    if($request->product_attribute_id!=null){
-        $data = UserCart::withWhereHas('product.attribute',function ($q) use($product_atter_id){
-          $q->where('id',$product_atter_id);
-        })->with('product.images')->where('product_id',$request->product_id)->where('user_id',Auth::id())->where('product_attribute_id',$request->product_attribute_id)->first();
-    }else{
-        $data = UserCart::with('product.attribute','product.images')->where('product_id',$request->product_id)->where('user_id',Auth::id())->first();
-    }
-    return response()->json([
-      'data' => $data
-      ]);
+    return view('web.append.cart');
+
+    // $product_atter_id = $request->product_attribute_id;
+    // if($request->product_attribute_id!=null){
+    //     $data = UserCart::withWhereHas('product.attribute',function ($q) use($product_atter_id){
+    //       $q->where('id',$product_atter_id);
+    //     })->with('product.images')->where('product_id',$request->product_id)->where('user_id',Auth::id())->where('product_attribute_id',$request->product_attribute_id)->first();
+    // }else{
+    //     $data = UserCart::with('product.attribute','product.images')->where('product_id',$request->product_id)->where('user_id',Auth::id())->first();
+    // }
+    // return response()->json([
+    //   'data' => $data
+    // ]);
   }
   public function removetoCart(Request $request){
      $removeFormCart = new UserCart();
@@ -76,6 +79,10 @@ class ProductController extends Controller
      }else{
         $removeFormCart->where('user_id',Auth::id())->where('product_id',$request->product_id)->delete();
      } 
+    //  return response()->json([
+    //   'data' => $request->product_id
+    // ]);
+      return view('web.append.cart');
   }
   public function changeAtter(Request $request){
       dd($request->all());

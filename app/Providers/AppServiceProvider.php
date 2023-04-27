@@ -31,6 +31,5 @@ class AppServiceProvider extends ServiceProvider
         Paginator::useBootstrapFive();
         Paginator::useBootstrapFour();
         view()->share('category', Category::all());
-
     }
 }

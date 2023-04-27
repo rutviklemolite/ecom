@@ -35,7 +35,7 @@ class FilterController extends Controller
       $data->with(['product.attribute']);
     }
 
-    dd($data->get()->toArray());
+    //dd($data->get()->toArray());
 
 
     //dd($subcategory->get());

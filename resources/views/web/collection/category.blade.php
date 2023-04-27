@@ -177,18 +177,18 @@
                                                     <img src="{{ asset('images/'.$val->images[0]->name) }}" class="img-fluid" alt="Image">
                                                     <div class="mask-icon">
                                                         <ul>
-                                                            <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
+                                                            <li><a href="product={{$val->id}}" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
                                                             <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i class="fas fa-sync-alt"></i></a></li>
                                                             <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
                                                         </ul>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> 
                                         <div class="col-sm-6 col-md-6 col-lg-8 col-xl-8">
                                             <div class="why-text full-width">
-                                                <h4>Lorem ipsum dolor sit amet</h4>
-                                                <h5> <del>$ 60.00</del> $40.79</h5>
+                                                <h4>{{$val->name}}</h4>
+                                                <h5> <del>${{isset($val->attribute[0]) ? $val->attribute[0]->selling_price : '0'}}</del> $40.79</h5>
                                                 <p>Integer tincidunt aliquet nibh vitae dictum. In turpis sapien, imperdiet quis magna nec, iaculis ultrices ante. Integer vitae suscipit nisi. Morbi dignissim risus sit amet orci porta, eget aliquam purus
                                                     sollicitudin. Cras eu metus felis. Sed arcu arcu, sagittis in blandit eu, imperdiet sit amet eros. Donec accumsan nisi purus, quis euismod ex volutpat in. Vestibulum eleifend eros ac lobortis aliquet.
                                                     Suspendisse at ipsum vel lacus vehicula blandit et sollicitudin quam. Praesent vulputate semper libero pulvinar consequat. Etiam ut placerat lectus.</p>
@@ -230,9 +230,9 @@
                 , 'quantity': quantity
                 , 'product_attribute_id': attribute_id
             }
-            , dataType: 'json'
+            //, dataType: 'json'
             , success: function(data) {
-                console.log(data)
+                $('.cart-list').html(data)
             }
             , error: function(data) {
                 console.log(data)
@@ -258,9 +258,9 @@
                 , 'quantity': quantity
                 , 'product_attribute_id': attribute_id
             }
-            , dataType: 'json'
             , success: function(data) {
-                console.log(data)
+                $('.cart-list').html(data)
+                $('.remove-cart').text('Add to cart')
             }
             , error: function(data) {
                 console.log(data)
