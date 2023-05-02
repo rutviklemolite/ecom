@@ -29,7 +29,7 @@
 <div class="container">
     <!-- Button trigger modal -->
     <a type="button" href="/pricestock/product/add" class="btn btn-primary open-model">
-        Add2 Product Pricestock
+        Add4 Product Pricestock
     </a>
 
     <div class="addcategory">
