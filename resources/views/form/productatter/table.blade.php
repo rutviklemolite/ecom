@@ -21,7 +21,7 @@
       <td>{{$value->attribute_value}}</td>
       <td>{{$value->selling_price}}</td>
       <td>
-      <a type="button" href="/atter/product/edit/{{$value->id}}" class="btn btn-primary update">update</a>
+      <a type="button" href="/atter/product/edit/{{$value->id}}" class="btn btn-primary update">edit</a>
       <a type="button" href="/atter/product/delete/{{$value->id}}" class="btn btn-danger delete">delete</a>
      </td>
     </tr>
