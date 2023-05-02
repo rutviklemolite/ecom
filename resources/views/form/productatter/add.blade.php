@@ -4,7 +4,7 @@
     <form action="/atter/product/store" method="post" id="atterform">
         @csrf
         <div class="form-group">
-            <label for="exampleInputEmail1">Attribut4e Value</label>
+            <label for="exampleInputEmail1">Attribugt4e Value</label>
             <input type="text" name="attervalue" class="form-control" placeholder="Enter Product">
             @if ($errors->has('attervalue'))
             <span class="text-danger">{{ $errors->first('attervalue') }}</span>
