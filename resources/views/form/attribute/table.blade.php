@@ -15,7 +15,7 @@
       <td>{{$value->name}}</td>
       <td>{{$value->value}}</td>
       <td>
-      <a type="button" href="/attribute/edit/{{$value->id}}" class="btn btn-primary update">update</a>
+      <a type="button" href="/attribute/edit/{{$value->id}}" class="btn btn-primary update">edit</a>
       <a type="button" href="/attribute/delete/{{$value->id}}" class="btn btn-danger delete">delete</a>
      </td>
     </tr>
